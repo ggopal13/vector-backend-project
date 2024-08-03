@@ -1,37 +1,57 @@
-<details>
-<summary>Project</summary>
+# LLD
+
+***
+
+<figure>
+    <img src="./vector-backend-prj.drawio.png"
+         alt="Albuquerque, New Mexico">
+    <figcaption>Project management tool</figcaption>
+</figure>
+
+
+>### Template
+> 
+> 
 
 >### Project
->
-> `createProject()` - Creates a new project
 > 
-> `updateProject()` - updates a project
+> `name`, `start_date`, `end_date`, `tasks` , `status`, `teams`
 > 
-> `deleteProject()` - Deletes a project
+> `updateProject(ProjectUpdate request)` - updates a project
 > 
-> `addTask()` - Adds a new task
+> `addTask(Task)` - Adds a new task
 > 
-> `subscribe()` - Allow clients to subscribe for events
-</details>
-
-<details>
-<summary>Task</summary>
+> `addTeam(Team)` - Adds a new team
+> 
+> `subscribe(EventType, Subscriber)` - subscribes for any event
 
 >### Task
 >
-> `createTask()` - Creates a new task
+> `name`, `start_date`, `end_date`, `user`, `status`, `dependencies`
 >
-> `updateTask()` - updates a task
+> `updateTask(TaskUpdate request)` - updates a task
+> 
+> `transferOwnership(User)` - updates the owner of the task
+> 
+> `addDependency(Task dependency)` - Adds another task as a dependency
 >
-> `deleteTask()` - Deletes a task
->
-> `subscribe()` - Allow clients to subscribe for events
-</details>
+> `subscribe(EventType, Subscriber)` - Allow clients to subscribe for events
 
-<details>
-<summary>User</summary>
+>### Team
+> 
+> `team_name`, `users`, `projects`
+> 
+> `updateTeam(TeamUpdate request)` - update the team info
+> 
+> `addUser(User)` - adds a user to the team
+> 
+> `getUsers()` - get all the users
+> 
+> `getProjects()` - get all the projects
 
 >### User
->
-> `CRUD()` - All crud operations
-</details>
+> `first_name`, `second_name`, `teams`, `location`
+> 
+> `updateUser(UserUpdate request)` - updates the user
+
+
