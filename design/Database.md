@@ -106,6 +106,24 @@ Constraints
 </tbody>
 </table>
 
+## Project Roles
+
+<table>
+<thead>
+<th>Column</th>
+<th>Type</th>
+<th>Constraints</th>
+</thead>
+<tbody>
+<tr><td>role_id</td><td>bigint</td><td>PK</td></tr>
+<tr><td>role_name</td><td>varchar</td><td>not null</td></tr>
+<tr><td>created_by</td><td>varchar</td><td>not null</td></tr>
+<tr><td>created_on</td><td>timestamp</td><td>not null</td></tr>
+<tr><td>last_modified_on</td><td>timestamp</td><td>not null</td></tr>
+<tr><td>last_modified_by</td><td>varchar</td><td>not null</td></tr>
+</tbody>
+</table>
+
 ## User Team Mapping
 
 <table>
@@ -118,6 +136,22 @@ Constraints
 <tr><td>user_id</td><td>bigint</td><td>PK</td></tr>
 <tr><td>team_id</td><td>varchar</td><td>not null</td></tr>
 <tr><td>added_on</td><td>timestamp</td><td>not null</td></tr>
+</tbody>
+</table>
+
+## Project Team Mapping
+
+<table>
+<thead>
+<th>Column</th>
+<th>Type</th>
+<th>Constraints</th>
+</thead>
+<tbody>
+<tr><td>project_id</td><td>bigint</td><td>FK Project(project_id)</td></tr>
+<tr><td>team_id</td><td>bigint</td><td>FK Team(team_id)</td></tr>
+<tr><td>role_id</td><td>bigint</td><td>FK Role(role_id)</td></tr>
+<tr><td>created_on</td><td>timestamp</td><td>not null</td></tr>
 </tbody>
 </table>
 
@@ -159,3 +193,40 @@ Constraints
 </tbody>
 </table>
 
+## Project Files
+
+<table>
+<thead>
+<th>Column</th>
+<th>Type</th>
+<th>Constraints</th>
+</thead>
+<tbody>
+<tr><td>file_id</td><td>bigint</td><td>PK</td></tr>
+<tr><td>link</td><td>varchar</td><td>not null</td></tr>
+<tr><td>created_by</td><td>varchar</td><td>not null</td></tr>
+<tr><td>created_on</td><td>timestamp</td><td>not null</td></tr>
+<tr><td>last_modified_on</td><td>timestamp</td><td>not null</td></tr>
+<tr><td>last_modified_by</td><td>varchar</td><td>not null</td></tr>
+<tr><td>project_id</td><td>bigint</td><td>FK Project(project_id)</td></tr>
+</tbody>
+</table>
+
+## Task Files
+
+<table>
+<thead>
+<th>Column</th>
+<th>Type</th>
+<th>Constraints</th>
+</thead>
+<tbody>
+<tr><td>file_id</td><td>bigint</td><td>PK</td></tr>
+<tr><td>link</td><td>varchar</td><td>not null</td></tr>
+<tr><td>created_by</td><td>varchar</td><td>not null</td></tr>
+<tr><td>created_on</td><td>timestamp</td><td>not null</td></tr>
+<tr><td>last_modified_on</td><td>timestamp</td><td>not null</td></tr>
+<tr><td>last_modified_by</td><td>varchar</td><td>not null</td></tr>
+<tr><td>task_id</td><td>bigint</td><td>FK Task(task_id)</td></tr>
+</tbody>
+</table>
